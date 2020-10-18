@@ -44,7 +44,7 @@ public class DAOdia {
 	          String madia= rs.getString(1);
 	          String matieude= rs.getString(2);
                   
-                  String trangthai=rs.getString(4);
+                  String trangthai=rs.getString(3);
                
                   
 	          Dia d=new Dia(madia, new Tieude(matieude), trangthai);

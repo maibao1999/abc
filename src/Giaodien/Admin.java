@@ -6,8 +6,10 @@
 package Giaodien;
 
 import ConnectDB.Database;
+import DAO.DAOdia;
 import DAO.DAOloai;
 import DAO.DAOtieude;
+import Entity.Dia;
 import Entity.Loai;
 import Entity.Tieude;
 import java.util.ArrayList;
@@ -21,10 +23,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Admin extends javax.swing.JFrame {
      private static DefaultTableModel datamodel1;
-    
+    private static DefaultTableModel datamodel2;
      
      
-     
+     DAOdia dsd = new DAOdia();
      DAOtieude dstd=new DAOtieude();
      DAOloai dsl=new DAOloai();
      
@@ -36,7 +38,8 @@ public class Admin extends javax.swing.JFrame {
         
         String[] headers1 = {"Mã tiêu đề", "Tên tiêu đề", "Số lượng", "Trạng thái", "Đơn giá", "Loại"};
         datamodel1 = new DefaultTableModel(headers1, 0);
-         
+        String[] headers2 = {"Mã đãi","Mã tiêu đề","Trạng thái"};
+        datamodel2 = new DefaultTableModel(headers2,0);
          
         tabletieude.setDefaultEditor(Object.class, null);
         
@@ -45,6 +48,7 @@ public class Admin extends javax.swing.JFrame {
         updatecbbloaitieude();
         updatetabledatatieude();
         updatecbbtieude();
+        updatetabledatadia();
          
     }
 
@@ -113,13 +117,13 @@ public class Admin extends javax.swing.JFrame {
         tablequanlydia = new javax.swing.JTable();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        btthemdia = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtmadia = new javax.swing.JTextField();
+        txttrangthaidia = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -677,6 +681,11 @@ public class Admin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablequanlydia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablequanlydiaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablequanlydia);
 
         quanlydia.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 860, 190));
@@ -698,14 +707,14 @@ public class Admin extends javax.swing.JFrame {
         });
         quanlydia.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 90));
 
-        jButton18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton18.setText("Thêm");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btthemdia.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btthemdia.setText("Thêm");
+        btthemdia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btthemdiaActionPerformed(evt);
             }
         });
-        quanlydia.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, 40));
+        quanlydia.add(btthemdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, 40));
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("Mã tiêu đề");
@@ -717,17 +726,17 @@ public class Admin extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel26.setText("Trạng thái");
 
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtmadia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtmadia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtmadiaActionPerformed(evt);
             }
         });
 
-        jTextField7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txttrangthaidia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txttrangthaidia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txttrangthaidiaActionPerformed(evt);
             }
         });
 
@@ -762,12 +771,12 @@ public class Admin extends javax.swing.JFrame {
                                 .addGap(208, 208, 208)
                                 .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txttrangthaidia, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtmadia, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -778,7 +787,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jTextField6))
+                    .addComponent(txtmadia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -788,7 +797,7 @@ public class Admin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(txttrangthaidia, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
@@ -1999,13 +2008,13 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtmadiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmadiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtmadiaActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txttrangthaidiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttrangthaidiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txttrangthaidiaActionPerformed
 
     private void btndangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangxuatActionPerformed
       int thongbao = JOptionPane.showConfirmDialog(this, "Bạn có muốn thoát", "Chú ý", JOptionPane.YES_OPTION);
@@ -2066,9 +2075,12 @@ public class Admin extends javax.swing.JFrame {
         trangchuyen.revalidate();
     }//GEN-LAST:event_jButton20ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    private void btthemdiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btthemdiaActionPerformed
+       
+        
+        
+        
+    }//GEN-LAST:event_btthemdiaActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
@@ -2365,6 +2377,29 @@ public class Admin extends javax.swing.JFrame {
 
        
     }//GEN-LAST:event_tabletieudeMouseClicked
+
+    private void tablequanlydiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablequanlydiaMouseClicked
+     //       int row = tabletieude.getSelectedRow(); // lay dong dang chon tren table
+            int row = tablequanlydia.getSelectedRow();
+            txtmadia.setText(tablequanlydia.getValueAt(row, 0).toString());
+            txtmadia.setEditable(false);
+            txttrangthaidia.setText(tablequanlydia.getValueAt(row,2).toString());
+            txttrangthaidia.setEditable(false);
+    //    txttentieude.setText(tabletieude.getValueAt(row, 1).toString());
+     //   txttentieude.setEditable(false);
+         txtsoluong.setText(tabletieude.getValueAt(row, 2).toString());
+        txtsoluong.setEditable(false);
+         txttrangthai.setText(tabletieude.getValueAt(row, 3).toString());
+        txttrangthai.setEditable(false);
+         txtdongia.setText(tabletieude.getValueAt(row, 4).toString());
+        txtdongia.setEditable(false);
+
+       
+
+        cbbloai.setSelectedItem(tabletieude.getValueAt(row, 5).toString());
+
+       
+    }//GEN-LAST:event_tablequanlydiaMouseClicked
     public boolean kiemtrarangbuoctieude(){
         if (!messloimatieude.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
@@ -2395,6 +2430,18 @@ public class Admin extends javax.swing.JFrame {
             datamodel1.addRow(rowdata);
         }
         tabletieude.setModel(datamodel1);
+     
+    }
+    
+     public void updatetabledatadia() {
+
+        ArrayList<Dia> list = dsd.doctubang();
+
+        for (Dia x : list) {
+            String[] rowdata = {x.getMadia(),x.getMatieude().getMatieude(),x.getTrangthai()};
+            datamodel2.addRow(rowdata);
+        }
+        tablequanlydia.setModel(datamodel2);
      
     }
     
@@ -2470,6 +2517,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnquanlytieude;
     private javax.swing.JButton btnxoakhachhang;
     private javax.swing.JButton btnxoaphitre;
+    private javax.swing.JButton btthemdia;
     private javax.swing.JPanel capnhatphithue;
     private javax.swing.JPanel capnhatthoigianthue;
     private javax.swing.JComboBox<String> cbbloai;
@@ -2479,7 +2527,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -2634,8 +2681,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel menu;
     private javax.swing.JLabel messloidongia;
@@ -2655,10 +2700,12 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTable tablexoaphitre;
     private javax.swing.JPanel trangchuyen;
     private javax.swing.JTextField txtdongia;
+    private javax.swing.JTextField txtmadia;
     private javax.swing.JTextField txtmatieude;
     private javax.swing.JTextField txtsoluong;
     private javax.swing.JTextField txttentieude;
     private javax.swing.JTextField txttrangthai;
+    private javax.swing.JTextField txttrangthaidia;
     private javax.swing.JPanel xoakhachhang;
     private javax.swing.JPanel xoaphitre;
     // End of variables declaration//GEN-END:variables
