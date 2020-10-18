@@ -44,6 +44,7 @@ public class Admin extends javax.swing.JFrame {
         
         updatecbbloaitieude();
         updatetabledatatieude();
+        updatecbbtieude();
          
     }
 
@@ -117,15 +118,12 @@ public class Admin extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        cbbtieude = new javax.swing.JComboBox<>();
         xoakhachhang = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -248,7 +246,7 @@ public class Admin extends javax.swing.JFrame {
         capnhatthoigianthue = new javax.swing.JPanel();
         jLabel86 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        tabletieude6 = new javax.swing.JTable();
+        javax.swing.JTable tabletieude6 = new javax.swing.JTable();
         jButton36 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         jButton38 = new javax.swing.JButton();
@@ -579,7 +577,7 @@ public class Admin extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txttrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(messloitrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
+                                .addComponent(messloitrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txttentieude, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -662,17 +660,17 @@ public class Admin extends javax.swing.JFrame {
         tablequanlydia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tablequanlydia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Mã", "Tên", "Địa chỉ", "Số điện thoại"
+                "Mã đĩa", "Mã tiêu đề", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -690,7 +688,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        quanlydia.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 100, 40));
+        quanlydia.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 100, 40));
 
         jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-home-64.png"))); // NOI18N
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -707,22 +705,17 @@ public class Admin extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
-        quanlydia.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, 100, 40));
+        quanlydia.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, 40));
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel24.setText("Tên");
+        jLabel24.setText("Mã tiêu đề");
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel25.setText("Mã");
+        jLabel25.setText("Mã đĩa");
 
         jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel26.setText("Địa chỉ");
-
-        jLabel27.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel27.setText("SĐT");
-
-        jTextField5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel26.setText("Trạng thái");
 
         jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -738,8 +731,6 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-
         jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 0, 0));
         jLabel28.setText("jLabel16");
@@ -752,10 +743,6 @@ public class Admin extends javax.swing.JFrame {
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
         jLabel30.setText("jLabel18");
 
-        jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel31.setText("jLabel19");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -765,24 +752,19 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(cbbtieude, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(208, 208, 208)
                                 .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -799,8 +781,9 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(jTextField6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(cbbtieude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -809,15 +792,10 @@ public class Admin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        quanlydia.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 860, 220));
+        quanlydia.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 860, 140));
 
         trangchuyen.add(quanlydia, "card3");
 
@@ -1837,6 +1815,7 @@ public class Admin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabletieude6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane9.setViewportView(tabletieude6);
 
         capnhatthoigianthue.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 860, 190));
@@ -2429,6 +2408,19 @@ public class Admin extends javax.swing.JFrame {
         }
 
     }
+     ///////////////////////////////////////
+      private void updatecbbtieude() {
+        DAOtieude ds = new DAOtieude();
+  //      DAOloai ds = new DAOloai();
+   //     List<Loai> list = ds.doctubang();
+        List<Tieude> list = ds.doctubang();
+
+        for (Tieude s : list) {
+        //    cbbloai.addItem(ds.timloaitheoid(s.getMaloai()).getTenloai());
+            cbbtieude.addItem(ds.timtieudetheoid(s.getMatieude()).getTentieude());
+        }
+
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2481,6 +2473,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel capnhatphithue;
     private javax.swing.JPanel capnhatthoigianthue;
     private javax.swing.JComboBox<String> cbbloai;
+    private javax.swing.JComboBox<String> cbbtieude;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -2523,11 +2516,9 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -2643,10 +2634,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel menu;
     private javax.swing.JLabel messloidongia;
@@ -2662,7 +2651,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTable tablecapnhatphithue;
     private javax.swing.JTable tablequanlydia;
     private javax.swing.JTable tabletieude;
-    private javax.swing.JTable tabletieude6;
     private javax.swing.JTable tablexoakh;
     private javax.swing.JTable tablexoaphitre;
     private javax.swing.JPanel trangchuyen;

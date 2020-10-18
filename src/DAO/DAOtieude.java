@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class DAOtieude {
     ArrayList<Tieude> dstd;
-  
+    Tieude td;
     
     public DAOtieude(){
 		dstd= new ArrayList<Tieude>();	
@@ -120,6 +120,36 @@ public class DAOtieude {
  
        
         return check;
+    }
+      
+     public Tieude timtieudetheoid(String id){
+       try{
+             String sql= "select * from tieude where matieude like '"+id+"'";
+             Connection con= Database.getInstance().getConnection();
+             Statement st=con.createStatement();
+             ResultSet rs=st.executeQuery(sql);
+             
+           
+             
+             while(rs.next()) {
+                 String matieude=rs.getString(1);
+                 String tentieude=rs.getString(2);
+                 int soluong = rs.getInt(3);
+                 String trangthai=rs.getString(4);
+                 double dongiathue=rs.getDouble(5);
+                 String maloai = rs.getString(6);
+                
+                 td = new Tieude(matieude, tentieude, soluong, trangthai, dongiathue, new Loai(maloai));
+        //         l= new Loai(maloai, tenloai);
+                // dsn.add(xe);
+                 
+             }
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+       return td;
+       
+       
     }
     
 }
