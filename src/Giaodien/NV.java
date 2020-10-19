@@ -391,7 +391,7 @@ public class NV extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Báo cáo đĩa");
-        menu.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 100, -1));
+        menu.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 100, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

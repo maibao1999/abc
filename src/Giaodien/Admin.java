@@ -1859,7 +1859,7 @@ public class Admin extends javax.swing.JFrame {
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
             .addComponent(trangchuyen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         bgLayout.setVerticalGroup(
@@ -1868,7 +1868,7 @@ public class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(trangchuyen, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+                .addComponent(trangchuyen, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1886,7 +1886,52 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        
+         int row = tabletieude.getSelectedRow();
+     
+        if (row >= 0) {
+            int thongbao;
+            thongbao = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa", "Chú ý", JOptionPane.YES_OPTION);
+            if (thongbao != 1) {
+                String matieude = (String) tabletieude.getValueAt(row, 0);
+             
+                int a = 0;
+
+                List<Dia> list = new ArrayList<>();
+                list = dsd.doctubang();
+                for (int i = 0; i < list.size(); i++) {
+                    if (matieude.equalsIgnoreCase(list.get(i).getMatieude().getMatieude())) {
+                        a = i;
+                    }
+                }
+
+                if (a == 0) {
+
+                    if (dstd.deletetieude(matieude)) {
+                        datamodel1.removeRow(row);
+                        JOptionPane.showMessageDialog(this, "Xóa thành công");
+                        
+                        txtmatieude.setText("");
+                        txtmatieude.setEditable(true);
+                        txttentieude.setText("");
+                        txttentieude.setEditable(true);
+                        txtsoluong.setText("");
+                        txtsoluong.setEditable(true);
+                        cbbtrangthai.setSelectedIndex(0);
+                        cbbtrangthai.setEditable(true);
+                        txtdongia.setText("");
+                        txtdongia.setEditable(true);
+                        cbbloai.setSelectedIndex(0);
+                        cbbloai.setEditable(true);
+                         
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Không thể xóa");
+                }
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng cần xóa");
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void txtmatieudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmatieudeActionPerformed
@@ -2234,6 +2279,7 @@ public class Admin extends javax.swing.JFrame {
          txtsoluong.setText("");
         txtsoluong.setEditable(true);
        cbbtrangthai.setSelectedIndex(0);
+       
          txtdongia.setText("");
         txtdongia.setEditable(true);
 
@@ -2252,7 +2298,7 @@ public class Admin extends javax.swing.JFrame {
         txtsoluong.setEditable(false);
          txtdongia.setText(tabletieude.getValueAt(row, 4).toString());
         txtdongia.setEditable(false);
-          cbbtrangthai.setSelectedItem(tabletieude.getValueAt(row, 5).toString());
+        cbbtrangthai.setSelectedItem(tabletieude.getValueAt(row, 5).toString());
         cbbtrangthai.setEditable(false);
         cbbloai.setSelectedItem(tabletieude.getValueAt(row, 5).toString());
         cbbloai.setEditable(false);

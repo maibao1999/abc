@@ -46,7 +46,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" pref="990" max="32767" attributes="0"/>
+              <Component id="jLabel1" pref="1003" max="32767" attributes="0"/>
               <Component id="trangchuyen" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -56,7 +56,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="trangchuyen" pref="619" max="32767" attributes="0"/>
+                  <Component id="trangchuyen" pref="634" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
