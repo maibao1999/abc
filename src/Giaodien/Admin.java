@@ -132,11 +132,11 @@ public class Admin extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         txtmadia = new javax.swing.JTextField();
-        txttrangthaidia = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        messloimadia = new javax.swing.JLabel();
+        messloitieudedia = new javax.swing.JLabel();
+        messtrangthaidia = new javax.swing.JLabel();
         cbbtieude = new javax.swing.JComboBox<>();
+        cbbtrangthaidia = new javax.swing.JComboBox<>();
         xoakhachhang = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -490,6 +490,11 @@ public class Admin extends javax.swing.JFrame {
         jLabel18.setText("Trạng thái");
 
         txttentieude.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txttentieude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttentieudeActionPerformed(evt);
+            }
+        });
         txttentieude.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txttentieudeKeyReleased(evt);
@@ -578,7 +583,7 @@ public class Admin extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(cbbtrangthai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(259, 259, 259)
-                                .addComponent(messloitrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+                                .addComponent(messloitrangthai, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txttentieude, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -730,25 +735,31 @@ public class Admin extends javax.swing.JFrame {
                 txtmadiaActionPerformed(evt);
             }
         });
-
-        txttrangthaidia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txttrangthaidia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttrangthaidiaActionPerformed(evt);
+        txtmadia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtmadiaKeyReleased(evt);
             }
         });
 
-        jLabel28.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel28.setText("jLabel16");
+        messloimadia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        messloimadia.setForeground(new java.awt.Color(255, 0, 0));
+        messloimadia.setText("jLabel16");
 
-        jLabel29.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel29.setText("ádd");
+        messloitieudedia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        messloitieudedia.setForeground(new java.awt.Color(255, 0, 0));
+        messloitieudedia.setText("ádd");
 
-        jLabel30.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel30.setText("jLabel18");
+        messtrangthaidia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        messtrangthaidia.setForeground(new java.awt.Color(255, 0, 0));
+        messtrangthaidia.setText("jLabel18");
+
+        cbbtieude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbtieudeActionPerformed(evt);
+            }
+        });
+
+        cbbtrangthaidia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn hàng", "Hết hàng" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -764,42 +775,42 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(cbbtieude, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(208, 208, 208)
-                                .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txttrangthaidia, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)))
+                            .addComponent(cbbtieude, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbtrangthaidia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(156, 156, 156)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(messtrangthaidia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(messloitieudedia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtmadia, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(messloimadia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(messloimadia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(txtmadia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbbtieude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(messloitieudedia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txttrangthaidia, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbbtrangthaidia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(messtrangthaidia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         quanlydia.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 860, 140));
@@ -1950,10 +1961,6 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtmadiaActionPerformed
 
-    private void txttrangthaidiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttrangthaidiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttrangthaidiaActionPerformed
-
     private void btndangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndangxuatActionPerformed
       int thongbao = JOptionPane.showConfirmDialog(this, "Bạn có muốn thoát", "Chú ý", JOptionPane.YES_OPTION);
             if (thongbao != 1) {
@@ -2006,10 +2013,57 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void btthemdiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btthemdiaActionPerformed
+  /*          String ma = txtmatieude.getText();
+        String ten = txttentieude.getText();
+       
+        String trangthai = cbbtrangthai.getSelectedItem().toString();
+      
+        
+        String loai=null;
+         List<Loai> ls = dsl.doctubang();   
+        for (Loai l : ls) {
+            if (l.getTenloai().equalsIgnoreCase(cbbloai.getSelectedItem().toString())) {
+                loai = l.getMaloai();
+            }
+        }
+        if (!(txtmatieude.getText().equalsIgnoreCase("") || txttentieude.getText().equalsIgnoreCase("") || txtsoluong.getText().equalsIgnoreCase("") || txtdongia.getText().equalsIgnoreCase(""))) {
+            if (kiemtrarangbuoctieude() == true) {
+               int sl = Integer.parseInt(txtsoluong.getText());
+                 double dongia = Double.parseDouble(txtdongia.getText());
+                Tieude td = new Tieude(ma,ten,sl,trangthai,dongia,new Loai(loai));
+                if (dstd.kttrung(td.getMatieude()) == false) {
+                    if (dstd.themtieude(td)) {
+
+                       Loai l =dsl.timloaitheoid(td.getMaloai().getMaloai());
+
+                        datamodel1.addRow(new Object[]{td.getMatieude(),td.getTentieude(),td.getSoluong(),td.getTrangthai(),td.getDongiathue(),l.getMaloai()});
+                        JOptionPane.showMessageDialog(this, "Thêm thành công");
+                        txtmatieude.setText("");
+                        txtmatieude.setEnabled(true);
+                        txttentieude.setText("");
+                        txttentieude.setEnabled(true);
+                        txtsoluong.setText("");
+                        txtsoluong.setEnabled(true);
+                       cbbtrangthai.setEnabled(true);
+                        cbbtrangthai.setSelectedIndex(0);
+                        txtdongia.setText("");
+                        txtdongia.setEnabled(true);
+                        cbbloai.setEnabled(true);
+                        cbbloai.setSelectedIndex(0);
+
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Mã tiêu đề không được trùng");
+                }
+
+            }
+        } else 
+            JOptionPane.showMessageDialog(this, "Không được để trống");
+        
+
         
         
-        
-        
+        */
     }//GEN-LAST:event_btthemdiaActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -2311,9 +2365,11 @@ public class Admin extends javax.swing.JFrame {
             int row = tablequanlydia.getSelectedRow();
             txtmadia.setText(tablequanlydia.getValueAt(row, 0).toString());
             txtmadia.setEditable(false);
-            txttrangthaidia.setText(tablequanlydia.getValueAt(row,2).toString());
-            txttrangthaidia.setEditable(false);
+       
         cbbtieude.setSelectedItem(tablequanlydia.getValueAt(row, 1).toString());
+        cbbtieude.setEditable(false);
+        cbbtrangthaidia.setSelectedItem(tablequanlydia.getValueAt(row, 2).toString());
+        cbbtrangthaidia.setEditable(false);
 
     }//GEN-LAST:event_tablequanlydiaMouseClicked
 
@@ -2351,7 +2407,49 @@ public class Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bạn chưa chọn dòng cần xóa");
         }
     }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void txtmadiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmadiaKeyReleased
+
+        String madia=txtmadia.getText().trim();
+        if( madia.length() == 0){
+            messloimadia.setText(""); 
+        } else {
+            if(!(madia.length()>0 && madia.matches("D[0-9]{3}"))){
+                messloimadia.setText("Mã đĩa phải bắt đầu bằng D và theo sau là 3 kí số ");
+            }else {
+                messloimadia.setText("");
+            }
+        }
+    }//GEN-LAST:event_txtmadiaKeyReleased
+
+    private void txttentieudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttentieudeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttentieudeActionPerformed
+
+    private void cbbtieudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbtieudeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbtieudeActionPerformed
     public boolean kiemtrarangbuoctieude(){
+        if (!messloimatieude.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
+            return false;
+        } else if (!messloitentieude.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
+            return false;
+        } else if (!messloisoluong.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
+            return false;
+        } else if (!messloitrangthai.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
+            return false;
+        } else if (!messloidongia.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
+            return false;
+        }
+        return true;
+    }
+    
+        public boolean kiemtrarangbuocdia(){
         if (!messloimatieude.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(this, "Thông tin không hợp lệ");
             return false;
@@ -2482,6 +2580,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbbloai;
     private javax.swing.JComboBox<String> cbbtieude;
     private javax.swing.JComboBox<String> cbbtrangthai;
+    private javax.swing.JComboBox<String> cbbtrangthaidia;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -2523,9 +2622,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
@@ -2631,10 +2727,13 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField36;
     private javax.swing.JPanel menu;
     private javax.swing.JLabel messloidongia;
+    private javax.swing.JLabel messloimadia;
     private javax.swing.JLabel messloimatieude;
     private javax.swing.JLabel messloisoluong;
     private javax.swing.JLabel messloitentieude;
+    private javax.swing.JLabel messloitieudedia;
     private javax.swing.JLabel messloitrangthai;
+    private javax.swing.JLabel messtrangthaidia;
     private javax.swing.JPanel quanlydia;
     private javax.swing.JPanel quanlytieude;
     private javax.swing.JTable tablebaocaokhachhang;
@@ -2651,7 +2750,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTextField txtmatieude;
     private javax.swing.JTextField txtsoluong;
     private javax.swing.JTextField txttentieude;
-    private javax.swing.JTextField txttrangthaidia;
     private javax.swing.JPanel xoakhachhang;
     private javax.swing.JPanel xoaphitre;
     // End of variables declaration//GEN-END:variables
