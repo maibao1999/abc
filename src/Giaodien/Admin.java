@@ -42,8 +42,7 @@ public class Admin extends javax.swing.JFrame {
         datamodel2 = new DefaultTableModel(headers2,0);
          
         tabletieude.setDefaultEditor(Object.class, null);
-        
-        
+        tablequanlydia.setDefaultEditor(Object.class, null);
         
         updatecbbloaitieude();
         updatetabledatatieude();
@@ -670,7 +669,7 @@ public class Admin extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Mã đĩa", "Mã tiêu đề", "Trạng thái"
+                "Mã đĩa", "Tiêu đề", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -717,7 +716,7 @@ public class Admin extends javax.swing.JFrame {
         quanlydia.add(btthemdia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, 40));
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel24.setText("Mã tiêu đề");
+        jLabel24.setText("Tiêu đề");
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -801,7 +800,7 @@ public class Admin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         quanlydia.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 860, 140));
@@ -2385,18 +2384,8 @@ public class Admin extends javax.swing.JFrame {
             txtmadia.setEditable(false);
             txttrangthaidia.setText(tablequanlydia.getValueAt(row,2).toString());
             txttrangthaidia.setEditable(false);
-    //    txttentieude.setText(tabletieude.getValueAt(row, 1).toString());
-     //   txttentieude.setEditable(false);
-         txtsoluong.setText(tabletieude.getValueAt(row, 2).toString());
-        txtsoluong.setEditable(false);
-         txttrangthai.setText(tabletieude.getValueAt(row, 3).toString());
-        txttrangthai.setEditable(false);
-         txtdongia.setText(tabletieude.getValueAt(row, 4).toString());
-        txtdongia.setEditable(false);
 
-       
-
-        cbbloai.setSelectedItem(tabletieude.getValueAt(row, 5).toString());
+        cbbtieude.setSelectedItem(tablequanlydia.getValueAt(row, 1).toString());
 
        
     }//GEN-LAST:event_tablequanlydiaMouseClicked
@@ -2422,11 +2411,9 @@ public class Admin extends javax.swing.JFrame {
     
     
     public void updatetabledatatieude() {
-
         ArrayList<Tieude> list = dstd.doctubang();
-
         for (Tieude x : list) {
-            String[] rowdata = {x.getMatieude(),x.getTentieude(),String.valueOf(x.getSoluong()),x.getTrangthai(),String.valueOf(x.getDongiathue()),x.getMaloai().getMaloai()};
+            String[] rowdata = {x.getMatieude(),x.getTentieude(),String.valueOf(x.getSoluong()),x.getTrangthai(),String.valueOf(x.getDongiathue()),dsl.timloaitheoid(x.getMaloai().getMaloai()).getTenloai()};
             datamodel1.addRow(rowdata);
         }
         tabletieude.setModel(datamodel1);
@@ -2438,7 +2425,7 @@ public class Admin extends javax.swing.JFrame {
         ArrayList<Dia> list = dsd.doctubang();
 
         for (Dia x : list) {
-            String[] rowdata = {x.getMadia(),x.getMatieude().getMatieude(),x.getTrangthai()};
+            String[] rowdata = {x.getMadia(),dstd.timtieudetheoid(x.getMatieude().getMatieude()).getTentieude(),x.getTrangthai()};
             datamodel2.addRow(rowdata);
         }
         tablequanlydia.setModel(datamodel2);
